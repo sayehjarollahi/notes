@@ -1,0 +1,34 @@
+title: LN | Reinforcement Learning
+header:
+  title: <p>Reforcement Learning</p>
+  description: <p>Explanation and Usages of Passive Reinforcement Learning Algorithms</p>
+authors:
+  label:
+    position: top
+  kind: people
+  content:
+  - name: Bahar Asadi
+    role: Author
+    contact:
+    - link: https://github.com/baharasadi
+      icon: fab fa-github
+    kind: person
+    image: https://github.com/baharasadi.png
+  - name: Neda Taghizadeh
+    role: Author
+    contact:
+    - link: https://github.com/nedataghizadeh79
+      icon: fab fa-github
+    kind: person
+    image: https://github.com/nedataghizadeh79.png
+  - name: Sayeh Jarollahi
+    role: Author
+    contact:
+    - link: https://github.com/sayehjarollahi
+      icon: fab fa-github
+    kind: person
+    image: https://github.com/sayehjarollahi.png
+kind: Content
+search:
+  content: true
+  links: false
