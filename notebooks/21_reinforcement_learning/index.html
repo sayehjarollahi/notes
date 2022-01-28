@@ -39,13 +39,14 @@ metadata: notebooks_21_reinforcement_learning_metadata
 </ul>
 </li>
 <li><a href="#ProblemwithTD">Problem with TD</a></li>
-<li><a href="#Conclusion">Conclusion</a></li>
+<li><a href="#Conclusion">Summery and Conclusion</a></li>
 <li><a href="#resources">References</a></li>
 </ul>
 <div id="introduction"></div>
 <h1>Inroduction</h1>
 <p><em><strong>"... What we want is a machine that can learn from experience." -Alan Turing, 1947</strong></em></p>
-<p>Reinforcement learning is a subcategory of Machine Learning which solves problems that involve learning what to do—how to
+<p>At the beginning of the lecture note, we briefly introduce the RL algorithm. After that, we compare online models to offline models. Additionally, we compare different categories of learning methods based on the model. Then we use Direct Utility Estimation Method to estimate our factor based on sample values. Later, we introduce Temporal Difference Learning Algorithm to understand how the agent can gain experience and learn from the envirnment if it does not have enough knowledge. At the end of the discussion, there is a summary of different topics in RL which we have learned. </p>
+<p><strong>Reinforcement Learning</strong> is a subcategory of Machine Learning which can solve real-life problems. These problems involve learning what to do—how to
 map situations to actions— to maximize a numerical reward signal. In this learning system, the system's actions influence its later inputs. Moreover, the learner is not told which actions to take but instead must discover
 which actions yield the most reward by trying them out.
 <br/></p>
@@ -154,13 +155,13 @@ In addition, we can estimate $\hat{R}(s,a,s')$ for each movement in all episodes
 <p><strong>Question:</strong> What is the problem of above model-based algorithm?<br/> If the number of states are large, the number of required samples to train the model will be $O((|S|)^2.|A|)$. In other words, we need many episodes to be able to train the model properly. </p>
 <div id="TypesofReinforcementLearningAccordingtoLearningPolicy"></div>
 <h2>Types of Reinforcement Learning According to Learning Policy</h2>
-<p>Ther are two types of RL according to Learning policy: <strong>Passive Reinforcement Learning</strong>, <strong>Active Reinforcement Learning</strong>. In below, we explain both methods.</p>
+<p>There are two types of RL according to Learning policy: <strong>Passive Reinforcement Learning</strong>, <strong>Active Reinforcement Learning</strong>. In below, we explain both methods.</p>
 <div id="PassiveReinforcementLearning"></div>
 <h2>Passive Reinforcement Learning</h2>
 <p>Passive reinforcement learning is when we want an agent to learn about the utilities of various states under a fixed policy. The learned policy will be different from the original fixed policy. <em><strong>Direct Utility Estimation</strong></em> and <em><strong>Temporal Difference Learning</strong></em> are two passive RL algorithms. </p>
 <div id="ActiveReinforcementLearning"></div>
 <h2>Active Reinforcement Learning</h2>
-<p>Active reinforcement learning is when the policy of the agent is not fixed and can change during the time of training. In this method exploration and exploition is done. Exploration refers to trying new actions that are rarely done and checking if they have a bigger reward. Exploitation refers to keep doing the optimal action at each state. <em>Q-learning</em> is one of the active RL algorithms. </p>
+<p>Active reinforcement learning is when the agent's policy is not fixed and can change during the time of training. In this method exploration and exploition are done. Exploration refers to trying new actions that are rarely done and checking if they have a bigger reward. Exploition refers to keep doing the optimal action at each state. <em>Q-learning</em> is one of the active RL algorithms. </p>
 <div id="PolicyEvaluation"></div>
 <h2>Policy Evaluation</h2>
 <p>Policy evaluation computes the value functions for a policy $\pi$ using the Bellman equations.
@@ -172,7 +173,7 @@ In fact, simplified Bellman updates calculate V for a fixed policy:
 <div id="DirectUtilityEstimation"></div>
 <h1>Direct Utility Estimation</h1>
 <div id="Definition"></div>
-<p><strong>Definition:</strong> In this method, the agent executes a sequence of trials or runs (sequences of state-action transitions that continue until the agent reaches the terminal state). Each trial gives a sample value and the agent estimates the utility based on the samples values. This can be calculated as running averages of sample values.</p>
+<p><strong>Definition:</strong> In this method, the agent executes a sequence of trials. Each trial gives a sample value and the agent estimates the utility based on the samples values. This can be calculated as running averages of sample values.</p>
 <ul>
 <li>
 <p><strong>Direct utility estimation (model-free)</strong></p>
@@ -330,7 +331,7 @@ For example, if the average is $\varphi$ up to this point, the updated average w
 moving average. In this equation reward at time <strong>t</strong> is a combination of discounted rewards in the future which shows that future rewards are valued less.</p>
 <p>TD agent error:</p>
 <p>$$ E_{t} = V^{\pi ^ *}<em t="t">{t} - V^\pi</em> $$\
-$$= r_{t+1} + \sum_{k = 1}^{\infty }\gamma ^{k} r_{t + k + 1} - V^\pi_{t} $$\
+$$= r_{t+1} + \sum_{k = 1}^{\infty }\gamma ^{k} r_{t + k + 1} - V^ \pi_{t} $$\
 $$= r_{t+1} + \gamma \times \sum_{k = 1}^{\infty }\gamma ^{k-1} r_{t + k + 1} - V^\pi_{t} $$\
 $$= r_{t+1} + \gamma \times \sum_{k = 0}^{\infty }\gamma ^{k} r_{(t  + 1) + (k + 1)} - V^\pi_{t}$$\
 $$=  r_{t+1} + \gamma \times \sum_{k = 0}^{\infty }\gamma ^{k} r_{(t  + 1) + (k + 1)} - V^\pi_{t}$$\
@@ -454,11 +455,12 @@ Calculations:</p>
 <p>https://user-images.githubusercontent.com/62206142/148566163-089a2a3c-4361-4997-b956-d4e790cf1cbd.mp4</p>
 <div id="ProblemwithTD"></div>
 <h2>Problem with TD</h2>
-<p>All we want is to find the best policy that suits us. Although TD agent finds the value of each state (A value that converges to the real value during the time), it cannot find the best policy because for finding that and doing one-step expectimax, $T$ and $R$ functions are needed. However, in RL, they are not available. Therefore, a new method is needed which is called <strong>Q-Learning</strong>.</p>
+<p>All we want is to find the best policy that suits us. Although TD agent finds the value of each state (A value that converges to the real value during the time), it cannot find the best policy because for finding that and doing one-step expectimax, $T$ and $R$ functions are needed. However, in RL, they are not available. Therefore, a new method is required, called <strong>Q-Learning</strong>.</p>
 <div id="Conclusion"></div>
-<h1>Conclusion</h1>
+<h1>Summery and Conclusion</h1>
 <div id="SummaryofDiscussedRLMethods"></div>
-<h3>Summary of Discussed RL Methods</h3>
+<p>In this lecture note, we tried to cover some topics of RL. First, we talked about RL itself and gave the definition. Then, we mentioned various types of RL and their differences. In the end, we tried to cover two methods of learning used in RL. There is a summary of these methods and usages of RL in the following.</p>
+<h3>Discussed RL Methods</h3>
 <h4>Direct Utility Estimation</h4>
 <ul>
 <li>Simple to implement</li>
